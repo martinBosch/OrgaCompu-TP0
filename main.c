@@ -2,6 +2,7 @@
 #include <getopt.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 struct globalArgs_t {
     bool isVersion;
@@ -25,6 +26,46 @@ static const struct option longOpts[] = {
         { "input", required_argument, NULL, 'i' },
         { NULL, no_argument, NULL, 0 }
 };
+
+void bubbleSort(char* vec, int MAX) { // REVISAR
+    char word;
+    int i, j;
+    bool swapped;
+
+    for (i = 0; i < MAX - 1; i++) {
+        swapped = false;
+        for (j = 0; j < MAX - 1 - i; j++) {
+            if (vec[j] > vec[j + 1]) {
+                word = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = word;
+
+                swapped = true;
+            }
+        }
+        // Si no hubo swap, entonces el vector ya esta ordenado, se rompe el loop.
+        if (!swapped) {
+            break;
+        }
+    }
+}
+
+char* wordVec;
+int  max = 0; // Tamaño del wordVec
+
+void createWordVec(char text[]) {
+
+    //char text[] = "This #is - www.tutorials+point.com/dale - {website}, esto; es:"
+    const char delimit[] = " ,\n\t, ., -, *, :, ;, /, ·, _, ?, !, #, (, ), [, ], {, }"; //
+    // Toma el primer token
+    wordVec = strtok(text, delimit);
+    // Los tokens restantes
+    while (wordVec != NULL) {
+        max++;
+        printf("%s\n", wordVec);
+        wordVec = strtok(NULL, delimit);
+    }
+}
 
 int main(int argc, char *argv[]){
     int opt=0;
@@ -50,7 +91,7 @@ int main(int argc, char *argv[]){
             case 'i':
                 globalArgs.inFileName=optarg;
                 break;
-            case 'h':	/* fall-through is intentional */
+            case 'h':
             case '?':
             case 0:
                 display_usage();
@@ -59,4 +100,8 @@ int main(int argc, char *argv[]){
     }
 
     return 0;
+
 }
+
+
+
