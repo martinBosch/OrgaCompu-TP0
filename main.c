@@ -3,19 +3,18 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
-
+#include "simclist.h"
+#define OPTSTRING "Vhqb:o:i"
+#define WORD_MAX_LENGTH
 struct globalArgs_t {
     bool isVersion;
-    bool isHelp;
     bool isQuickSort;
     bool isBubblesort;
     const char *outFileName;
     FILE *outFile;
     const char *inFileName;
     FILE *inFile;
-} globalArgs;
-
-static const char *optString= "Vhqb:o:i";
+}globalArgs;
 
 static const struct option longOpts[] = {
         { "version", no_argument, NULL, 'V' },
@@ -50,34 +49,39 @@ void bubbleSort(char* vec, int MAX) { // REVISAR
     }
 }
 
-char* wordVec;
-int  max = 0; // Tamaño del wordVec
 
-void createWordVec(char text[]) {
-
-    //char text[] = "This #is - www.tutorials+point.com/dale - {website}, esto; es:"
-    const char delimit[] = " ,\n\t, ., -, *, :, ;, /, ·, _, ?, !, #, (, ), [, ], {, }"; //
-    // Toma el primer token
-    wordVec = strtok(text, delimit);
-    // Los tokens restantes
-    while (wordVec != NULL) {
-        max++;
-        printf("%s\n", wordVec);
-        wordVec = strtok(NULL, delimit);
+list_t getWordList(char* text) {
+    list_t wordList;
+    list_init(&wordList);
+    char* word;
+    const char *delimit = " ,\n\t.-*:;/·_?!#()[]{}";
+    word = strsep(&text, delimit);
+    while (word != NULL) {
+        list_append(&wordList,word);
+        do {
+            word = strsep(&text, delimit);
+        }while(word!=NULL&&strcmp(word,"")==0);
     }
-}
+    return wordList;
 
+}
+void printWordList(list_t* wordList){
+    list_iterator_start(wordList);
+    while(list_iterator_hasnext(wordList)){
+        printf("%s\n",(char*)list_iterator_next(wordList));
+    }
+    list_iterator_stop(wordList);
+}
+void display_usage();
 int main(int argc, char *argv[]){
     int opt=0;
     int longIndex=0;
-    initilizeGlobalArgs();
-    while(opt=getopt_long(argc, argv, optString, longOpts, &longIndex) != -1){
+    list_t lista;
+   /* initializeGlobalArgs();
+    while(opt=getopt_long(argc, argv, OPTSTRING, longOpts, &longIndex) != -1){
         switch (opt){
             case 'V':
                 globalArgs.isVersion=true;
-                break;
-            case 'h':
-                globalArgs.isHelp=true;
                 break;
             case 'q':
                 globalArgs.isQuickSort=true;
@@ -97,9 +101,22 @@ int main(int argc, char *argv[]){
                 display_usage();
                 break;
         }
-    }
-
+    }*/
+    lista=getWordList(argv[1]);
+    printWordList(&lista);
     return 0;
+}
+
+void initializeGlobalArgs(){
+    globalArgs.isBubblesort=false;
+    globalArgs.isVersion=false;
+    globalArgs.isQuickSort=false;
+    globalArgs.outFileName=NULL;
+    globalArgs.inFileName=NULL;
+    globalArgs.outFile=NULL;
+    globalArgs.inFile=NULL;
+}
+void display_usage(){
 
 }
 

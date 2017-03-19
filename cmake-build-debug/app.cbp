@@ -87,6 +87,12 @@
 		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/main.c">
 			<Option target="app"/>
 		</Unit>
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/simclist.c">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/simclist.h">
+			<Option target="app"/>
+		</Unit>
 		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

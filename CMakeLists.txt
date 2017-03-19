@@ -3,5 +3,5 @@ project(app)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES main.c)
+set(SOURCE_FILES main.c simclist.c)
 add_executable(app ${SOURCE_FILES})
