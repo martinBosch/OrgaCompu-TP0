@@ -102,7 +102,7 @@ int main(int argc, char *argv[]){
                 break;
         }
     }*/
-    lista=getWordList(argv[1]);
+    lista=getWordList(argv[1]);//probando
     printWordList(&lista);
     return 0;
 }
