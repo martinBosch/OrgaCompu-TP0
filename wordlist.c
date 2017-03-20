@@ -4,7 +4,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-//#define MAX_WORD_SIZE 50
 #define STATE_WAITING_WORD 0
 #define STATE_IN_WORD 1
 #define STATE_FINISHED 2
@@ -12,7 +11,7 @@
 
 // Compara el caracter leído c y define el nuevo estado.
 static char wordlist_next_state(wordlist_t *self, char state, char c);
-//
+//Añade el caracter c al string str
 void stradd(char* str,char c);
 
 void wordlist_create(wordlist_t *self) {
@@ -66,6 +65,7 @@ static char wordlist_next_state(wordlist_t *self, char state, char c) {
 
     return next_state;
 }
+
 void stradd(char* str,char c){
     if(strlen(str)+1<MAX_WORD_SIZE) {
         str[strlen(str)] = c;
