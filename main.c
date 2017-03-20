@@ -3,9 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "simclist.h"
+#include "wordlist.h"
 #define OPTSTRING "Vhqb:o:i"
-#define WORD_MAX_LENGTH
 struct globalArgs_t {
     bool isVersion;
     bool isQuickSort;
@@ -49,35 +48,36 @@ void bubbleSort(char* vec, int MAX) { // REVISAR
     }
 }
 
-
-list_t getWordList(char* text) {
-    list_t wordList;
-    list_init(&wordList);
-    char* word;
-    const char *delimit = " ,\n\t.-*:;/·_?!#()[]{}";
-    word = strsep(&text, delimit);
-    while (word != NULL) {
-        list_append(&wordList,word);
-        do {
-            word = strsep(&text, delimit);
-        }while(word!=NULL&&strcmp(word,"")==0);
-    }
-    return wordList;
-
-}
-void printWordList(list_t* wordList){
-    list_iterator_start(wordList);
-    while(list_iterator_hasnext(wordList)){
-        printf("%s\n",(char*)list_iterator_next(wordList));
-    }
-    list_iterator_stop(wordList);
-}
+void setArgs(int argc, char *argv[]);
+void initializeGlobalArgs();
+void printWordList(TListaSimple* wordList);
 void display_usage();
+
 int main(int argc, char *argv[]){
+     wordlist_t wordList;
+      TListaSimple* list;
+
+      setArgs(argc,argv);
+
+      globalArgs.inFile=fopen(globalArgs.inFileName,"r");
+
+      if(globalArgs.inFile==NULL)
+          return 1;
+
+      wordlist_create(&wordList);
+      wordlist_process(&wordList,globalArgs.inFile);
+      list=wordlist_get_list(&wordList);
+      printWordList(list);
+      fclose(globalArgs.inFile);
+      wordlist_destroy(&wordList);
+
+    return 0;
+}
+
+void setArgs(int argc, char *argv[]){
+    initializeGlobalArgs();
     int opt=0;
     int longIndex=0;
-    list_t lista;
-   /* initializeGlobalArgs();
     while(opt=getopt_long(argc, argv, OPTSTRING, longOpts, &longIndex) != -1){
         switch (opt){
             case 'V':
@@ -101,12 +101,11 @@ int main(int argc, char *argv[]){
                 display_usage();
                 break;
         }
-    }*/
-    lista=getWordList(argv[1]);//probando
-    printWordList(&lista);
-    return 0;
-}
+    }
+    if(globalArgs.inFileName==NULL)
+        globalArgs.inFileName=argv[optind]; //Si no se utilizo -i el archivo será el ultimo arg
 
+}
 void initializeGlobalArgs(){
     globalArgs.isBubblesort=false;
     globalArgs.isVersion=false;
@@ -117,8 +116,17 @@ void initializeGlobalArgs(){
     globalArgs.inFile=NULL;
 }
 void display_usage(){
-
+    exit(0);
 }
 
+//Funcion de prueba para imprimir la lista
+void printWordList(TListaSimple* wordList){
+    char aux[MAX_WORD_SIZE];
+    L_Mover_Cte(wordList,L_Primero);
+    do{
+        L_Elem_Cte(*wordList,aux);
+        printf("%s\n",aux);
+    }while(L_Mover_Cte(wordList,L_Siguiente));
+}
 
 

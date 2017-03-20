@@ -3,5 +3,5 @@ project(app)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES main.c simclist.c)
+set(SOURCE_FILES main.c Lista.h Lista.c wordlist.c wordlist.h)
 add_executable(app ${SOURCE_FILES})

@@ -81,43 +81,69 @@ CMakeFiles/app.dir/main.c.o.provides: CMakeFiles/app.dir/main.c.o.requires
 CMakeFiles/app.dir/main.c.o.provides.build: CMakeFiles/app.dir/main.c.o
 
 
-CMakeFiles/app.dir/simclist.c.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/simclist.c.o: ../simclist.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/app.dir/simclist.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/simclist.c.o   -c /home/tg/FIUBA/orga6620/tp0/app/simclist.c
+CMakeFiles/app.dir/Lista.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/Lista.c.o: ../Lista.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/app.dir/Lista.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/Lista.c.o   -c /home/tg/FIUBA/orga6620/tp0/app/Lista.c
 
-CMakeFiles/app.dir/simclist.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/simclist.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tg/FIUBA/orga6620/tp0/app/simclist.c > CMakeFiles/app.dir/simclist.c.i
+CMakeFiles/app.dir/Lista.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/Lista.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tg/FIUBA/orga6620/tp0/app/Lista.c > CMakeFiles/app.dir/Lista.c.i
 
-CMakeFiles/app.dir/simclist.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/simclist.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tg/FIUBA/orga6620/tp0/app/simclist.c -o CMakeFiles/app.dir/simclist.c.s
+CMakeFiles/app.dir/Lista.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/Lista.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tg/FIUBA/orga6620/tp0/app/Lista.c -o CMakeFiles/app.dir/Lista.c.s
 
-CMakeFiles/app.dir/simclist.c.o.requires:
+CMakeFiles/app.dir/Lista.c.o.requires:
 
-.PHONY : CMakeFiles/app.dir/simclist.c.o.requires
+.PHONY : CMakeFiles/app.dir/Lista.c.o.requires
 
-CMakeFiles/app.dir/simclist.c.o.provides: CMakeFiles/app.dir/simclist.c.o.requires
-	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/simclist.c.o.provides.build
-.PHONY : CMakeFiles/app.dir/simclist.c.o.provides
+CMakeFiles/app.dir/Lista.c.o.provides: CMakeFiles/app.dir/Lista.c.o.requires
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/Lista.c.o.provides.build
+.PHONY : CMakeFiles/app.dir/Lista.c.o.provides
 
-CMakeFiles/app.dir/simclist.c.o.provides.build: CMakeFiles/app.dir/simclist.c.o
+CMakeFiles/app.dir/Lista.c.o.provides.build: CMakeFiles/app.dir/Lista.c.o
+
+
+CMakeFiles/app.dir/wordlist.c.o: CMakeFiles/app.dir/flags.make
+CMakeFiles/app.dir/wordlist.c.o: ../wordlist.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/app.dir/wordlist.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/app.dir/wordlist.c.o   -c /home/tg/FIUBA/orga6620/tp0/app/wordlist.c
+
+CMakeFiles/app.dir/wordlist.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/app.dir/wordlist.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tg/FIUBA/orga6620/tp0/app/wordlist.c > CMakeFiles/app.dir/wordlist.c.i
+
+CMakeFiles/app.dir/wordlist.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/app.dir/wordlist.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tg/FIUBA/orga6620/tp0/app/wordlist.c -o CMakeFiles/app.dir/wordlist.c.s
+
+CMakeFiles/app.dir/wordlist.c.o.requires:
+
+.PHONY : CMakeFiles/app.dir/wordlist.c.o.requires
+
+CMakeFiles/app.dir/wordlist.c.o.provides: CMakeFiles/app.dir/wordlist.c.o.requires
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wordlist.c.o.provides.build
+.PHONY : CMakeFiles/app.dir/wordlist.c.o.provides
+
+CMakeFiles/app.dir/wordlist.c.o.provides.build: CMakeFiles/app.dir/wordlist.c.o
 
 
 # Object files for target app
 app_OBJECTS = \
 "CMakeFiles/app.dir/main.c.o" \
-"CMakeFiles/app.dir/simclist.c.o"
+"CMakeFiles/app.dir/Lista.c.o" \
+"CMakeFiles/app.dir/wordlist.c.o"
 
 # External object files for target app
 app_EXTERNAL_OBJECTS =
 
 app: CMakeFiles/app.dir/main.c.o
-app: CMakeFiles/app.dir/simclist.c.o
+app: CMakeFiles/app.dir/Lista.c.o
+app: CMakeFiles/app.dir/wordlist.c.o
 app: CMakeFiles/app.dir/build.make
 app: CMakeFiles/app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -126,7 +152,8 @@ CMakeFiles/app.dir/build: app
 .PHONY : CMakeFiles/app.dir/build
 
 CMakeFiles/app.dir/requires: CMakeFiles/app.dir/main.c.o.requires
-CMakeFiles/app.dir/requires: CMakeFiles/app.dir/simclist.c.o.requires
+CMakeFiles/app.dir/requires: CMakeFiles/app.dir/Lista.c.o.requires
+CMakeFiles/app.dir/requires: CMakeFiles/app.dir/wordlist.c.o.requires
 
 .PHONY : CMakeFiles/app.dir/requires
 

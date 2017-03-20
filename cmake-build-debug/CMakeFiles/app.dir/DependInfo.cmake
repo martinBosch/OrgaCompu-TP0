@@ -4,8 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/home/tg/FIUBA/orga6620/tp0/app/Lista.c" "/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles/app.dir/Lista.c.o"
   "/home/tg/FIUBA/orga6620/tp0/app/main.c" "/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles/app.dir/main.c.o"
-  "/home/tg/FIUBA/orga6620/tp0/app/simclist.c" "/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles/app.dir/simclist.c.o"
+  "/home/tg/FIUBA/orga6620/tp0/app/wordlist.c" "/home/tg/FIUBA/orga6620/tp0/app/cmake-build-debug/CMakeFiles/app.dir/wordlist.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

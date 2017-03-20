@@ -123,6 +123,33 @@ app/fast:
 	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
+Lista.o: Lista.c.o
+
+.PHONY : Lista.o
+
+# target to build an object file
+Lista.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/Lista.c.o
+.PHONY : Lista.c.o
+
+Lista.i: Lista.c.i
+
+.PHONY : Lista.i
+
+# target to preprocess a source file
+Lista.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/Lista.c.i
+.PHONY : Lista.c.i
+
+Lista.s: Lista.c.s
+
+.PHONY : Lista.s
+
+# target to generate assembly for a file
+Lista.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/Lista.c.s
+.PHONY : Lista.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -150,32 +177,32 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.c.s
 .PHONY : main.c.s
 
-simclist.o: simclist.c.o
+wordlist.o: wordlist.c.o
 
-.PHONY : simclist.o
+.PHONY : wordlist.o
 
 # target to build an object file
-simclist.c.o:
-	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/simclist.c.o
-.PHONY : simclist.c.o
+wordlist.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wordlist.c.o
+.PHONY : wordlist.c.o
 
-simclist.i: simclist.c.i
+wordlist.i: wordlist.c.i
 
-.PHONY : simclist.i
+.PHONY : wordlist.i
 
 # target to preprocess a source file
-simclist.c.i:
-	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/simclist.c.i
-.PHONY : simclist.c.i
+wordlist.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wordlist.c.i
+.PHONY : wordlist.c.i
 
-simclist.s: simclist.c.s
+wordlist.s: wordlist.c.s
 
-.PHONY : simclist.s
+.PHONY : wordlist.s
 
 # target to generate assembly for a file
-simclist.c.s:
-	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/simclist.c.s
-.PHONY : simclist.c.s
+wordlist.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/wordlist.c.s
+.PHONY : wordlist.c.s
 
 # Help Target
 help:
@@ -186,12 +213,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
+	@echo "... Lista.o"
+	@echo "... Lista.i"
+	@echo "... Lista.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... simclist.o"
-	@echo "... simclist.i"
-	@echo "... simclist.s"
+	@echo "... wordlist.o"
+	@echo "... wordlist.i"
+	@echo "... wordlist.s"
 .PHONY : help
 
 

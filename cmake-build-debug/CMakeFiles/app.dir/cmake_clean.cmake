@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/app.dir/main.c.o"
-  "CMakeFiles/app.dir/simclist.c.o"
+  "CMakeFiles/app.dir/Lista.c.o"
+  "CMakeFiles/app.dir/wordlist.c.o"
   "app.pdb"
   "app"
 )

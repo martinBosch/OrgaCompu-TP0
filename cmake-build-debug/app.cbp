@@ -84,13 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/Lista.c">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/Lista.h">
+			<Option target="app"/>
+		</Unit>
 		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/main.c">
 			<Option target="app"/>
 		</Unit>
-		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/simclist.c">
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/wordlist.c">
 			<Option target="app"/>
 		</Unit>
-		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/simclist.h">
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/wordlist.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/CMakeLists.txt">
