@@ -25,21 +25,78 @@ static const struct option longOpts[] = {
         { NULL, no_argument, NULL, 0 }
 };
 
-void bubbleSort(char* vec, int MAX) { // REVISAR
+/* ADAPTAR
+void intercambiarQS(int num1, int num2) {
+
+    char temp = charArray[num1];
+    charArray[num1] = charArray[num2];
+    charArray[num2] = temp;
+}
+
+int partition(int left, int right, int pivot) {
+    int leftPointer = left -1;
+    int rightPointer = right;
+
+    while(true) {
+        while(intArray[++leftPointer] < pivot) {
+            //do nothing
+        }
+
+        while(rightPointer > 0 && intArray[--rightPointer] > pivot) {
+            //do nothing
+        }
+
+        if(leftPointer >= rightPointer) {
+            break;
+        } else {
+            swap(leftPointer,rightPointer);
+        }
+    }
+
+    swap(leftPointer,right);
+    return leftPointer;
+}
+
+void quickSort(int left, int right) {
+    if(right-left <= 0) {
+        return;
+    } else {
+        int pivot = intArray[right];
+        int partitionPoint = partition(left, right, pivot);
+        quickSort(left,partitionPoint-1);
+        quickSort(partitionPoint+1,right);
+    }
+}
+*/
+
+int llamadosIntercambiarBS = 0; // cantidad de llamados a la funcion intercambiar
+
+bool intercambiarBS(char vec1, char vec2){ // REVISAR-ADAPTAR
+
     char word;
+
+    word = vec1;
+    vec1 = vec2;
+    vec2 = word;
+
+    llamadosIntercambiarBS++;
+
+    return true;
+}
+
+void bubbleSort(char* vec, int MAX) { // REVISAR-ADAPTAR (agregar cantidad de llamados)
     int i, j;
     bool swapped;
 
     for (i = 0; i < MAX - 1; i++) {
         swapped = false;
         for (j = 0; j < MAX - 1 - i; j++) {
-            if (vec[j] > vec[j + 1]) {
-                word = vec[j];
-                vec[j] = vec[j + 1];
-                vec[j + 1] = word;
 
-                swapped = true;
+            if (vec[j] > vec[j + 1]){
+
+                swapped = intercambiarBS(vec[j], vec[j + 1]);
             }
+
         }
         // Si no hubo swap, entonces el vector ya esta ordenado, se rompe el loop.
         if (!swapped) {
@@ -54,22 +111,22 @@ void printWordList(TListaSimple* wordList);
 void display_usage();
 
 int main(int argc, char *argv[]){
-     wordlist_t wordList;
-      TListaSimple* list;
+    wordlist_t wordList;
+    TListaSimple* list;
 
-      setArgs(argc,argv);
+    setArgs(argc,argv);
 
-      globalArgs.inFile=fopen(globalArgs.inFileName,"r");
+    globalArgs.inFile=fopen(globalArgs.inFileName,"r");
 
-      if(globalArgs.inFile==NULL)
-          return 1;
+    if(globalArgs.inFile==NULL)
+        return 1;
 
-      wordlist_create(&wordList);
-      wordlist_process(&wordList,globalArgs.inFile);
-      list=wordlist_get_list(&wordList);
-      printWordList(list);
-      fclose(globalArgs.inFile);
-      wordlist_destroy(&wordList);
+    wordlist_create(&wordList);
+    wordlist_process(&wordList,globalArgs.inFile);
+    list=wordlist_get_list(&wordList);
+    printWordList(list);
+    fclose(globalArgs.inFile);
+    wordlist_destroy(&wordList);
 
     return 0;
 }
