@@ -3,29 +3,34 @@
 
 #include <string.h>
 #include <stdio.h>
-#include "Lista.h"
+//#include "Lista.h"
+#include "buffer.h"
 #define MAX_WORD_SIZE 50
-// Tipo wordscounter_t: procesa cantidad de palabras dentro de un archivo.
+
+
 typedef struct {
-    TListaSimple word_list;
-    char* currentWord;
+//    TListaSimple word_list;
+    buffer_t word_list;
+    char *current_word;
 } wordlist_t;
 
 // Initializa la instancia self para ser utilizada
 // Pre: self apunta un sector válido de memoria
-void wordlist_create(wordlist_t *self);
+int wordlist_crear(wordlist_t *self);
 
 // Destruye la instancia self liberando sus recursos.
 // Pre: self fue inicializado mediante wordscounter_create
-void wordlist_destroy(wordlist_t *self);
+void wordlist_destruir(wordlist_t *self);
 
 // Retorna la lista de palabras
 // Pre: self fue inicializado mediante wordscounter_create
-TListaSimple* wordlist_get_list(wordlist_t *self);
+//buffer_t* wordlist_obtener_lista(wordlist_t *self);
 
 // Procesa el contenido de text_file, obteniendo sus palabras.
 // Pre: self fue inicializado mediante wordlist_create.
 //      text_file es un archivo válido, abierto para lectura.
-void wordlist_process(wordlist_t *self, FILE *text_file);
+void wordlist_procesar(wordlist_t *self, FILE *text_file);
+
+void wordlist_imprimir_words(wordlist_t *self);
 
 #endif
