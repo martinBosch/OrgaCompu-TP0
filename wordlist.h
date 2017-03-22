@@ -5,6 +5,7 @@
 #include <stdio.h>
 //#include "Lista.h"
 #include "buffer.h"
+
 #define MAX_WORD_SIZE 50
 
 
@@ -32,5 +33,7 @@ void wordlist_destruir(wordlist_t *self);
 void wordlist_procesar(wordlist_t *self, FILE *text_file);
 
 void wordlist_imprimir_words(wordlist_t *self);
+
+void wordlist_ordenar(wordlist_t *self, size_t modo);
 
 #endif

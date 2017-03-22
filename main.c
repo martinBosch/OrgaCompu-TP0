@@ -104,6 +104,12 @@ int main(int argc, char *argv[]){
     wordlist_crear(&wordList);
     wordlist_procesar(&wordList,globalArgs.inFile);
     wordlist_imprimir_words(&wordList);
+
+    wordlist_ordenar(&wordList, BUBBLESORT);
+    printf("ORDENADAS\n");
+    wordlist_imprimir_words(&wordList);
+
+
     fclose(globalArgs.inFile);
     wordlist_destruir(&wordList);
 

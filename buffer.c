@@ -1,6 +1,7 @@
 #include "buffer.h"
 #include <string.h>
 #include <stdio.h>
+//#include "ordenamiento.h"
 
 #define TAM_INICIAL 50
 
@@ -64,4 +65,10 @@ void buffer_imprimir_words(buffer_t *self) {
     for (int i = 0; i < self->cant_words; i+=1) {
         printf("%s\n", self->buffer[i]);
     }
+}
+
+void buffer_ordenar(buffer_t *self, size_t modo) {
+    if (modo == BUBBLESORT)
+        bubbleSort(self->buffer, self->cant_words);
+
 }

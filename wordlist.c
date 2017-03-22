@@ -83,3 +83,7 @@ void stradd(char* str,char c){
 void wordlist_imprimir_words(wordlist_t *self) {
     buffer_imprimir_words(&self->word_list);
 }
+
+void wordlist_ordenar(wordlist_t *self, size_t modo) {
+    buffer_ordenar(&self->word_list, modo);
+}
