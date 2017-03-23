@@ -31,6 +31,7 @@ void setArgs(int argc, char *argv[]);
 void initializeGlobalArgs();
 void printWordList(buffer_t* lista);
 void display_usage();
+void print_version();
 
 void setArgs(int argc, char *argv[]){
     initializeGlobalArgs();
@@ -39,7 +40,7 @@ void setArgs(int argc, char *argv[]){
     while( (opt=getopt_long(argc, argv, OPTSTRING, longOpts, &longIndex)) != -1){
         switch (opt){
             case 'V':
-                globalArgs.isVersion=true;
+                print_version();
                 break;
             case 'q':
                 globalArgs.isQuickSort=true;
@@ -74,6 +75,28 @@ void initializeGlobalArgs(){
     globalArgs.inFile=NULL;
 }
 void display_usage(){
+    printf("Usage: \n");
+    printf("tp0 -h \n");
+    printf("tp0 -V \n");
+    printf("tp0 [options] file \n");
+    printf("-V, --version \n");
+    printf("Print version and quit.\n");
+    printf("-h, --help\n");
+    printf("Print this information.\n");
+    printf("-o, --output\n");
+    printf("Path to output file.\n");
+    printf("-i, --input\n");
+    printf("Path to input file.\n");
+    printf("-q, --qsort\n");
+    printf("Use quicksort.\n");
+    printf("-b, --bsort\n");
+    printf("Use bubblesort.\n");
+    printf("Examples\n");
+    printf("tp0 -q -i input.txt -o output.txt\n");
+    exit(0);
+}
+void print_version(){
+    printf("tp0 Version 0.0000000000000000000000000000001\n");
     exit(0);
 }
 
