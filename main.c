@@ -27,7 +27,6 @@ static const struct option longOpts[] = {
 
 void setArgs(int argc, char *argv[]);
 void initializeGlobalArgs();
-void printWordList(buffer_t* lista);
 void display_usage();
 void print_version();
 
@@ -55,6 +54,7 @@ void setArgs(int argc, char *argv[]){
             case 'h':
             case '?':
             case 0:
+            default:
                 display_usage();
                 break;
         }
