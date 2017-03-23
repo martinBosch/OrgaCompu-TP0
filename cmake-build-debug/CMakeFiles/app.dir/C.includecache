@@ -17,6 +17,8 @@ stdio.h
 /home/tg/FIUBA/orga6620/tp0/app/buffer.h
 stdlib.h
 -
+stdio.h
+-
 ordenamiento.h
 /home/tg/FIUBA/orga6620/tp0/app/ordenamiento.h
 
