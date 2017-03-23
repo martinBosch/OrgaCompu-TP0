@@ -8,7 +8,7 @@
 #define STATE_WAITING_WORD 0
 #define STATE_IN_WORD 1
 #define STATE_FINISHED 2
-#define DELIM_WORDS " ,.-*$%&·:;/_?!#()[]{}0123456789\n\r\t\\\""
+#define DELIM_WORDS "\xbb\xef\xbf ,.-*$%&·:;/_?!#()[]{}0123456789\n\r\t\\\""
 
 // Compara el caracter leído c y define el nuevo estado.
 static char wordlist_next_state(wordlist_t *self, char state, char c);
@@ -68,12 +68,12 @@ static char wordlist_next_state(wordlist_t *self, char state, char c) {
 }
 
 void save_word(wordlist_t *self){
-    if(strlen(self->current_word)>1) {
+    if(strlen(self->current_word)>1) {//Si es de menos de un caracter puede ser que haya encontrado solo dos delimitadores seguidos
         buffer_guardar(&self->word_list, get_word(self));
         memset(self->current_word,0,MAX_WORD_SIZE);
     }
     else{
-        if(strpbrk(self->current_word,DELIM_WORDS)==NULL){
+        if(strpbrk(self->current_word,DELIM_WORDS)==NULL){//Hay que guardar las palabras de un solo caracter
             buffer_guardar(&self->word_list, get_word(self));
             memset(self->current_word,0,MAX_WORD_SIZE);
         }

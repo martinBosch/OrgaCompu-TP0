@@ -12,24 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efb61127-015b-4481-a9c3-22274964c212" name="Default" comment="Cree la función intercambiarBS e incluí comentado el quicksort.&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/app" afterPath="$PROJECT_DIR$/cmake-build-debug/app" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/C.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/C.includecache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/cmake_clean.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/depend.internal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/depend.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/link.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/app.dir/progress.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/app.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/app.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.c" afterPath="$PROJECT_DIR$/main.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordlist.c" afterPath="$PROJECT_DIR$/wordlist.c" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordlist.h" afterPath="$PROJECT_DIR$/wordlist.h" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -97,8 +80,8 @@
       <file leaf-file-name="wordlist.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wordlist.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+            <state relative-caret-position="150">
+              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -382,12 +365,12 @@
       <workItem from="1489963980854" duration="11620000" />
       <workItem from="1490016461615" duration="66000" />
       <workItem from="1490016557684" duration="6599000" />
-      <workItem from="1490274658563" duration="3523000" />
+      <workItem from="1490274658563" duration="4196000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62500000" />
+    <option name="totallyTimeSpent" value="63173000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -895,8 +878,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wordlist.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+        <state relative-caret-position="150">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
