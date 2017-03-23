@@ -31,8 +31,9 @@ void wordlist_destruir(wordlist_t *self);
 //      text_file es un archivo válido, abierto para lectura.
 void wordlist_procesar(wordlist_t *self, FILE *text_file);
 
-void wordlist_imprimir_words(wordlist_t *self);
+void wordlist_imprimir_pantalla(wordlist_t *self);
 
 void wordlist_ordenar(wordlist_t *self, size_t modo);
 
+void wordlist_imprimir_archivo(wordlist_t *self, FILE *text_file);
 #endif

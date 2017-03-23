@@ -16,8 +16,6 @@ static char wordlist_next_state(wordlist_t *self, char state, char c);
 static void stradd(char* str,char c);
 //guarda en el buffer la current word
 static void save_word(wordlist_t *self);
-//devuelve la current word
-static char* get_word(wordlist_t *self);
 
 int wordlist_crear(wordlist_t *self) {
     buffer_crear(&self->word_list);
@@ -69,22 +67,15 @@ static char wordlist_next_state(wordlist_t *self, char state, char c) {
 
 void save_word(wordlist_t *self){
     if(strlen(self->current_word)>1) {//Si es de menos de un caracter puede ser que haya encontrado solo dos delimitadores seguidos
-        buffer_guardar(&self->word_list, get_word(self));
+        buffer_guardar(&self->word_list, self->current_word);
         memset(self->current_word,0,MAX_WORD_SIZE);
     }
     else{
         if(strpbrk(self->current_word,DELIM_WORDS)==NULL){//Hay que guardar las palabras de un solo caracter
-            buffer_guardar(&self->word_list, get_word(self));
+            buffer_guardar(&self->word_list, self->current_word);
             memset(self->current_word,0,MAX_WORD_SIZE);
         }
     }
-}
-
-char * get_word(wordlist_t *self){
-    for(int i = 0; self->current_word[i]; i++){
-        self->current_word[i] = tolower(self->current_word[i]);
-    }
-    return self->current_word;
 }
 
 void stradd(char* str,char c){
@@ -94,8 +85,12 @@ void stradd(char* str,char c){
     }
 }
 
-void wordlist_imprimir_words(wordlist_t *self) {
-    buffer_imprimir_words(&self->word_list);
+void wordlist_imprimir_pantalla(wordlist_t *self) {
+    buffer_imprimir_words(&self->word_list,stdout);
+}
+
+void wordlist_imprimir_archivo(wordlist_t *self, FILE *text_file){
+    buffer_imprimir_words(&self->word_list,text_file);
 }
 
 void wordlist_ordenar(wordlist_t *self, size_t modo) {

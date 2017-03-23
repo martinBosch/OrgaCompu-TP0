@@ -61,14 +61,14 @@ int buffer_guardar(buffer_t *self, char *word) {
 //    return self->cant_words;
 //}
 
-void buffer_imprimir_words(buffer_t *self) {
+void buffer_imprimir_words(buffer_t *self, FILE* stream) {
     for (int i = 0; i < self->cant_words; i+=1) {
-        printf("%s\n", self->buffer[i]);
+        fprintf(stream,"%s\n", self->buffer[i]);
     }
 }
 
 void buffer_ordenar(buffer_t *self, size_t modo) {
-    if (modo == BUBBLESORT)
+    if (modo == ORDENAMIENTO_BUBBLESORT)
         bubbleSort(self->buffer, self->cant_words);
 
 }

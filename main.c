@@ -7,9 +7,7 @@
 
 #define OPTSTRING "Vhqb:o:i"
 struct globalArgs_t {
-    bool isVersion;
-    bool isQuickSort;
-    bool isBubblesort;
+    size_t ordenamiento;
     const char *outFileName;
     FILE *outFile;
     const char *inFileName;
@@ -43,10 +41,10 @@ void setArgs(int argc, char *argv[]){
                 print_version();
                 break;
             case 'q':
-                globalArgs.isQuickSort=true;
+                globalArgs.ordenamiento=ORDENAMIENTO_QUICKSORT;
                 break;
             case 'b':
-                globalArgs.isBubblesort=true;
+                globalArgs.ordenamiento=ORDENAMIENTO_BUBBLESORT;
                 break;
             case 'o':
                 globalArgs.outFileName=optarg;
@@ -66,9 +64,7 @@ void setArgs(int argc, char *argv[]){
 
 }
 void initializeGlobalArgs(){
-    globalArgs.isBubblesort=false;
-    globalArgs.isVersion=false;
-    globalArgs.isQuickSort=false;
+    globalArgs.ordenamiento=ORDENAMIENTO_BUBBLESORT; //por default bubblesort
     globalArgs.outFileName=NULL;
     globalArgs.inFileName=NULL;
     globalArgs.outFile=NULL;
@@ -104,22 +100,23 @@ int main(int argc, char *argv[]){
     wordlist_t wordList;
 
     setArgs(argc,argv);
-
     globalArgs.inFile=fopen(globalArgs.inFileName,"r");
-
+    globalArgs.outFile=fopen(globalArgs.outFileName,"w");
     if(globalArgs.inFile==NULL)
         return 1;
 
+
     wordlist_crear(&wordList);
     wordlist_procesar(&wordList,globalArgs.inFile);
-    //wordlist_imprimir_words(&wordList);
-
-    wordlist_ordenar(&wordList, BUBBLESORT);
-    printf("ORDENADAS\n");
-    wordlist_imprimir_words(&wordList);
-
+    wordlist_ordenar(&wordList, globalArgs.ordenamiento);
+    wordlist_imprimir_pantalla(&wordList);
+    if(globalArgs.outFile!=NULL){
+        wordlist_imprimir_archivo(&wordList,globalArgs.outFile);
+        fclose(globalArgs.outFile);
+    }
 
     fclose(globalArgs.inFile);
+
     wordlist_destruir(&wordList);
 
     return 0;

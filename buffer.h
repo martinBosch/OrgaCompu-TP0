@@ -2,6 +2,7 @@
 #define BUFFER_H
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "ordenamiento.h"
 
 typedef struct {
@@ -18,7 +19,7 @@ int buffer_guardar(buffer_t *self, char *word);
 
 //size_t buffer_obtener_cant(buffer_t *self);
 
-void buffer_imprimir_words(buffer_t *self);
+void buffer_imprimir_words(buffer_t *self, FILE* stream);
 
 void buffer_ordenar(buffer_t *self, size_t modo);
 

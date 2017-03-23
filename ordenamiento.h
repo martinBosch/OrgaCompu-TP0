@@ -3,8 +3,8 @@
 
 #include <stdlib.h>
 
-#define BUBBLESORT 0
-#define QUICKSORT 1
+#define ORDENAMIENTO_BUBBLESORT 0
+#define ORDENAMIENTO_QUICKSORT 1
 
 void bubbleSort(char **vec, size_t largo_vec);
 
