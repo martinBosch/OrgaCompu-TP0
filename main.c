@@ -77,20 +77,6 @@ void display_usage(){
     exit(0);
 }
 
-/*
-//Funcion de prueba para imprimir la lista
-void printWordList(buffer_t *lista) {
-    char aux[MAX_WORD_SIZE];
-    L_Mover_Cte(wordList,L_Primero);
-    do{
-        L_Elem_Cte(*wordList,aux);
-        printf("%s\n",aux);
-    }while(L_Mover_Cte(wordList,L_Siguiente));
- }
- */
-
-
-
 int main(int argc, char *argv[]){
     wordlist_t wordList;
 
@@ -103,7 +89,7 @@ int main(int argc, char *argv[]){
 
     wordlist_crear(&wordList);
     wordlist_procesar(&wordList,globalArgs.inFile);
-    wordlist_imprimir_words(&wordList);
+    //wordlist_imprimir_words(&wordList);
 
     wordlist_ordenar(&wordList, BUBBLESORT);
     printf("ORDENADAS\n");

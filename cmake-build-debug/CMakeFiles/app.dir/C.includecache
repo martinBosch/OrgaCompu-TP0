@@ -6,15 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/tg/FIUBA/orga6620/tp0/app/Lista.c
-Lista.h
-/home/tg/FIUBA/orga6620/tp0/app/Lista.h
+/home/tg/FIUBA/orga6620/tp0/app/buffer.c
+buffer.h
+/home/tg/FIUBA/orga6620/tp0/app/buffer.h
+string.h
+-
+stdio.h
+-
 
-/home/tg/FIUBA/orga6620/tp0/app/Lista.h
+/home/tg/FIUBA/orga6620/tp0/app/buffer.h
 stdlib.h
 -
-memory.h
--
+ordenamiento.h
+/home/tg/FIUBA/orga6620/tp0/app/ordenamiento.h
 
 /home/tg/FIUBA/orga6620/tp0/app/main.c
 stdio.h
@@ -30,6 +34,18 @@ stdlib.h
 wordlist.h
 /home/tg/FIUBA/orga6620/tp0/app/wordlist.h
 
+/home/tg/FIUBA/orga6620/tp0/app/ordenamiento.c
+string.h
+-
+stdbool.h
+-
+stdio.h
+-
+
+/home/tg/FIUBA/orga6620/tp0/app/ordenamiento.h
+stdlib.h
+-
+
 /home/tg/FIUBA/orga6620/tp0/app/wordlist.c
 wordlist.h
 /home/tg/FIUBA/orga6620/tp0/app/wordlist.h
@@ -41,12 +57,14 @@ stdbool.h
 -
 stdlib.h
 -
+ctype.h
+-
 
 /home/tg/FIUBA/orga6620/tp0/app/wordlist.h
 string.h
 -
 stdio.h
 -
-Lista.h
-/home/tg/FIUBA/orga6620/tp0/app/Lista.h
+buffer.h
+/home/tg/FIUBA/orga6620/tp0/app/buffer.h
 

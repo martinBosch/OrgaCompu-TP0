@@ -84,13 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/Lista.c">
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/buffer.c">
 			<Option target="app"/>
 		</Unit>
-		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/Lista.h">
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/buffer.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/main.c">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/ordenamiento.c">
+			<Option target="app"/>
+		</Unit>
+		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/ordenamiento.h">
 			<Option target="app"/>
 		</Unit>
 		<Unit filename="/home/tg/FIUBA/orga6620/tp0/app/wordlist.c">

@@ -123,32 +123,32 @@ app/fast:
 	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
-Lista.o: Lista.c.o
+buffer.o: buffer.c.o
 
-.PHONY : Lista.o
+.PHONY : buffer.o
 
 # target to build an object file
-Lista.c.o:
-	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/Lista.c.o
-.PHONY : Lista.c.o
+buffer.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/buffer.c.o
+.PHONY : buffer.c.o
 
-Lista.i: Lista.c.i
+buffer.i: buffer.c.i
 
-.PHONY : Lista.i
+.PHONY : buffer.i
 
 # target to preprocess a source file
-Lista.c.i:
-	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/Lista.c.i
-.PHONY : Lista.c.i
+buffer.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/buffer.c.i
+.PHONY : buffer.c.i
 
-Lista.s: Lista.c.s
+buffer.s: buffer.c.s
 
-.PHONY : Lista.s
+.PHONY : buffer.s
 
 # target to generate assembly for a file
-Lista.c.s:
-	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/Lista.c.s
-.PHONY : Lista.c.s
+buffer.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/buffer.c.s
+.PHONY : buffer.c.s
 
 main.o: main.c.o
 
@@ -176,6 +176,33 @@ main.s: main.c.s
 main.c.s:
 	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/main.c.s
 .PHONY : main.c.s
+
+ordenamiento.o: ordenamiento.c.o
+
+.PHONY : ordenamiento.o
+
+# target to build an object file
+ordenamiento.c.o:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/ordenamiento.c.o
+.PHONY : ordenamiento.c.o
+
+ordenamiento.i: ordenamiento.c.i
+
+.PHONY : ordenamiento.i
+
+# target to preprocess a source file
+ordenamiento.c.i:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/ordenamiento.c.i
+.PHONY : ordenamiento.c.i
+
+ordenamiento.s: ordenamiento.c.s
+
+.PHONY : ordenamiento.s
+
+# target to generate assembly for a file
+ordenamiento.c.s:
+	$(MAKE) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/ordenamiento.c.s
+.PHONY : ordenamiento.c.s
 
 wordlist.o: wordlist.c.o
 
@@ -213,12 +240,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
-	@echo "... Lista.o"
-	@echo "... Lista.i"
-	@echo "... Lista.s"
+	@echo "... buffer.o"
+	@echo "... buffer.i"
+	@echo "... buffer.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... ordenamiento.o"
+	@echo "... ordenamiento.i"
+	@echo "... ordenamiento.s"
 	@echo "... wordlist.o"
 	@echo "... wordlist.i"
 	@echo "... wordlist.s"

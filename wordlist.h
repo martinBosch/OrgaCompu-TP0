@@ -10,7 +10,6 @@
 
 
 typedef struct {
-//    TListaSimple word_list;
     buffer_t word_list;
     char *current_word;
 } wordlist_t;

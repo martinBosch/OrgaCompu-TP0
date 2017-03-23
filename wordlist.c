@@ -3,17 +3,21 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 #define STATE_WAITING_WORD 0
 #define STATE_IN_WORD 1
 #define STATE_FINISHED 2
-#define DELIM_WORDS " ,.-*:;/_?!#()[]{}0123456789\n\r\t\\\""
+#define DELIM_WORDS " ,.-*$%&·:;/_?!#()[]{}0123456789\n\r\t\\\""
 
 // Compara el caracter leído c y define el nuevo estado.
 static char wordlist_next_state(wordlist_t *self, char state, char c);
 //Añade el caracter c al string str
 static void stradd(char* str,char c);
-
+//guarda en el buffer la current word
+static void save_word(wordlist_t *self);
+//devuelve la current word
+static char* get_word(wordlist_t *self);
 
 int wordlist_crear(wordlist_t *self) {
     buffer_crear(&self->word_list);
@@ -30,10 +34,6 @@ void wordlist_destruir(wordlist_t *self) {
     free(self->current_word);
 }
 
-//buffer_t *wordlist_obtener_lista(wordlist_t *self) {
-//    return self->word_list;
-//}
-
 void wordlist_procesar(wordlist_t *self, FILE *text_file) {
     char state = STATE_WAITING_WORD;
     do {
@@ -48,29 +48,43 @@ static char wordlist_next_state(wordlist_t *self, char state, char c) {
     if (state == STATE_WAITING_WORD) {
         if (c == EOF) {
             next_state = STATE_FINISHED;
-        } else if (strchr(DELIM_WORDS, c) == NULL) {
+        } else if (strchr(DELIM_WORDS, c) == NULL && c!='\'') {// Hay que comparar solo en este estado el caracter ' porque si no se saltea las contractions
             next_state = STATE_IN_WORD;
             stradd(self->current_word,c);
         }
     } else if (state == STATE_IN_WORD) {
         if (c == EOF) {
+            save_word(self);
             next_state = STATE_FINISHED;
-            if(strlen(self->current_word)>1) {
-                buffer_guardar(&self->word_list, self->current_word);
-                memset(self->current_word,0,MAX_WORD_SIZE);
-            }
         } else if (strchr(DELIM_WORDS, c) != NULL) {
-            if(strlen(self->current_word)>1){
-                buffer_guardar(&self->word_list, self->current_word);
-                memset(self->current_word,0,MAX_WORD_SIZE);
-                next_state = STATE_WAITING_WORD;
-            }
+            save_word(self);
+            next_state = STATE_WAITING_WORD;
         } else {
             stradd(self->current_word, c);
         }
     }
 
     return next_state;
+}
+
+void save_word(wordlist_t *self){
+    if(strlen(self->current_word)>1) {
+        buffer_guardar(&self->word_list, get_word(self));
+        memset(self->current_word,0,MAX_WORD_SIZE);
+    }
+    else{
+        if(strpbrk(self->current_word,DELIM_WORDS)==NULL){
+            buffer_guardar(&self->word_list, get_word(self));
+            memset(self->current_word,0,MAX_WORD_SIZE);
+        }
+    }
+}
+
+char * get_word(wordlist_t *self){
+    for(int i = 0; self->current_word[i]; i++){
+        self->current_word[i] = tolower(self->current_word[i]);
+    }
+    return self->current_word;
 }
 
 void stradd(char* str,char c){
