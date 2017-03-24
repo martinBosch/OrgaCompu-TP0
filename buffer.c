@@ -71,4 +71,6 @@ void buffer_ordenar(buffer_t *self, size_t modo) {
     if (modo == ORDENAMIENTO_BUBBLESORT)
         bubbleSort(self->buffer, self->cant_words);
 
+    if (modo == ORDENAMIENTO_QUICKSORT)
+        quicksort(self->buffer, 0, (self->cant_words)-1);
 }

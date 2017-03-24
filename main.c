@@ -101,7 +101,8 @@ int main(int argc, char *argv[]){
 
     setArgs(argc,argv);
     globalArgs.inFile=fopen(globalArgs.inFileName,"r");
-    globalArgs.outFile=fopen(globalArgs.outFileName,"w");
+    if (globalArgs.outFileName != NULL)
+        globalArgs.outFile=fopen(globalArgs.outFileName,"w");
     if(globalArgs.inFile==NULL)
         return 1;
 
@@ -114,9 +115,7 @@ int main(int argc, char *argv[]){
         wordlist_imprimir_archivo(&wordList,globalArgs.outFile);
         fclose(globalArgs.outFile);
     }
-
     fclose(globalArgs.inFile);
-
     wordlist_destruir(&wordList);
 
     return 0;
