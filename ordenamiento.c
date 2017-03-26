@@ -18,7 +18,7 @@ static int comparar(const char *word1, const char *word2) {
     return strcasecmp(word1, word2);
 }
 
-static int partition(char **vec, int izq, int der) {
+static int partition(char **vec, size_t izq, size_t der) {
     while (der - izq > 0) {
         char *pivot = vec[izq];
         char *word_a_comparar = vec[izq+1];
@@ -35,7 +35,7 @@ static int partition(char **vec, int izq, int der) {
     return izq;
 }
 
-void quicksort(char **vec, int izq, int der) {
+void quicksort(char **vec, size_t izq, size_t der) {
     // Si la lista esta vacia, o es de tamanio 1 esta ordenada.
     if (der-izq <= 0) {
         return;
