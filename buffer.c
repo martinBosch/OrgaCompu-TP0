@@ -37,7 +37,7 @@ static int buffer_redimensionar(buffer_t *self, size_t tam_nuevo) {
 
 int buffer_guardar(buffer_t *self, char *word) {
     if (self->cant_words >= self->tam) {
-        int redimension = buffer_redimensionar(self, 2*self->tam);
+        int redimension = buffer_redimensionar(self, self->tam*2);
         if (redimension == 1) {
             return 1;
         }

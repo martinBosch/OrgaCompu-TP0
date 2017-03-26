@@ -15,7 +15,7 @@ static bool intercambiar(char **word1, char **word2){
 // = 0 indica word1 = word2
 // > 0 indica word1 > word2
 static int comparar(const char *word1, const char *word2) {
-    return strcmp(word1, word2);
+    return strcasecmp(word1, word2);
 }
 
 static int partition(char **vec, int izq, int der) {
