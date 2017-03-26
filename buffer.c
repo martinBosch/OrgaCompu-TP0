@@ -3,7 +3,7 @@
 #include <stdio.h>
 //#include "ordenamiento.h"
 
-#define TAM_INICIAL 50000
+#define TAM_INICIAL 100
 
 
 int buffer_crear(buffer_t *self) {

@@ -3,7 +3,6 @@
 
 #include <string.h>
 #include <stdio.h>
-//#include "Lista.h"
 #include "buffer.h"
 
 #define MAX_WORD_SIZE 50

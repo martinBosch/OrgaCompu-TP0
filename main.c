@@ -98,7 +98,6 @@ void print_version(){
 
 int main(int argc, char *argv[]){
     wordlist_t wordList;
-
     setArgs(argc,argv);
     globalArgs.inFile=fopen(globalArgs.inFileName,"r");
     if (globalArgs.outFileName != NULL)

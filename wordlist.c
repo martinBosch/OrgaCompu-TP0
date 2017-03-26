@@ -8,7 +8,7 @@
 #define STATE_WAITING_WORD 0
 #define STATE_IN_WORD 1
 #define STATE_FINISHED 2
-#define DELIM_WORDS "\xbb\xef\xbf ,.-*$%&·:;/_?=@!#()[]{}0123456789\n\r\t\\\""
+#define DELIM_WORDS "\xbb\xef\xbf ,.-*$%&·:;/_?=@«¡!#()[]{}0123456789\n\r\t\\\""
 
 // Compara el caracter leído c y define el nuevo estado.
 static char wordlist_next_state(wordlist_t *self, char state, int c);
