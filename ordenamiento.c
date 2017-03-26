@@ -48,7 +48,7 @@ void quicksort(char **vec, int izq, int der) {
 }
 
 void bubbleSort(char **vec, size_t largo_vec) {
-    int i, j;
+    size_t i, j;
     bool swapped;
 
     for (i = 0; i < largo_vec - 1; i++) {
