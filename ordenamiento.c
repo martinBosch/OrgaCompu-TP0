@@ -35,7 +35,7 @@ static int partition(char **vec, size_t izq, size_t der) {
     return izq;
 }
 
-void quicksort(char **vec, size_t izq, size_t der) {
+void quicksort(char **vec, int izq, int der) {
     // Si la lista esta vacia, o es de tamanio 1 esta ordenada.
     if (der-izq <= 0) {
         return;
