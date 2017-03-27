@@ -49,17 +49,12 @@ void quicksort(char **vec, int izq, int der) {
 
 void bubbleSort(char **vec, int largo_vec) {
     int i, j;
-    bool swapped;
 
     for (i = 0; i < (largo_vec - 1); i++) {
-        swapped = false;
         for (j = 0; j < (largo_vec - 1 - i); j++) {
             if (comparar(vec[j], vec[j + 1]) > 0) {
-                swapped = intercambiar(&vec[j], &vec[j + 1]);
+                intercambiar(&vec[j], &vec[j + 1]);
             }
-            if(!swapped) break;
         }
-        // Si no hubo swap, entonces el vector ya esta ordenado, se rompe el loop.
-
     }
 }
