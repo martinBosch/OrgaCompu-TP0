@@ -49,12 +49,15 @@ void quicksort(char **vec, int izq, int der) {
 
 void bubbleSort(char **vec, int largo_vec) {
     int i, j;
-
+    bool sorted = false;
     for (i = 0; i < (largo_vec - 1); i++) {
         for (j = 0; j < (largo_vec - 1 - i); j++) {
             if (comparar(vec[j], vec[j + 1]) > 0) {
-                intercambiar(&vec[j], &vec[j + 1]);
+                sorted = intercambiar(&vec[j], &vec[j + 1]);
             }
         }
+        if(!sorted)
+            break;
+        sorted = false;
     }
 }
