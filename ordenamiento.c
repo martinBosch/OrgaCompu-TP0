@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdbool.h>
+#include <strings.h>
 
 #include <stdio.h>
 
