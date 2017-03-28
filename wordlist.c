@@ -66,16 +66,19 @@ static char wordlist_next_state(wordlist_t *self, char state, int c) {
 }
 
 void save_word(wordlist_t *self){
-    if(strlen(self->current_word)>1) {//Si es de menos de un caracter puede ser que haya encontrado solo dos delimitadores seguidos
-        buffer_guardar(&self->word_list, self->current_word);
-        memset(self->current_word,0,MAX_WORD_SIZE);
-    }
-    else{
-        if(strpbrk(self->current_word,DELIM_WORDS)==NULL){//Hay que guardar las palabras de un solo caracter
+
+        if(strlen(self->current_word)>1) {//Si es de menos de un caracter puede ser que haya encontrado solo dos delimitadores seguidos
             buffer_guardar(&self->word_list, self->current_word);
             memset(self->current_word,0,MAX_WORD_SIZE);
         }
-    }
+        else{
+            if(strpbrk(self->current_word,DELIM_WORDS)==NULL){//Hay que guardar las palabras de un solo caracter
+                buffer_guardar(&self->word_list, self->current_word);
+                memset(self->current_word,0,MAX_WORD_SIZE);
+            }
+        }
+
+
 }
 
 void stradd(char* str,char c){

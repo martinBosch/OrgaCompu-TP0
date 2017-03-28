@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include "ordenamiento.h"
 
 typedef struct {
@@ -18,7 +19,7 @@ void buffer_destruir(buffer_t *self);
 int buffer_guardar(buffer_t *self, char *word);
 
 //size_t buffer_obtener_cant(buffer_t *self);
-
+bool esta_en_buffer(buffer_t *self, char *word);
 void buffer_imprimir_words(buffer_t *self, FILE* stream);
 
 void buffer_ordenar(buffer_t *self, size_t modo);
