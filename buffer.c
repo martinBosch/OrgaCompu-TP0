@@ -46,9 +46,9 @@ int buffer_guardar(buffer_t *self, char *word) {
         memcpy(aux, word, tam_word+1);
         self->buffer[self->cant_words] = aux;
         self->cant_words += 1;
-        return 0;
     }
 
+    return 0;
 }
 
 void buffer_imprimir_words(buffer_t *self, FILE* stream) {
