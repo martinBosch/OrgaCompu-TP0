@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdbool.h>
+#include <strings.h>
 
 static bool intercambiar(char **word1, char **word2){
     char *aux = *word1;

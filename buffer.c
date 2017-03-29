@@ -1,5 +1,6 @@
 #include "buffer.h"
 #include <string.h>
+#include <strings.h>
 
 #define TAM_INICIAL 5000
 
