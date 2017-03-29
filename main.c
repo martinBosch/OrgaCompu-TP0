@@ -148,11 +148,11 @@ int main(int argc, char *argv[]){
     wordlist_crear(&wordList);
     wordlist_procesar(&wordList,args.inFile);
     wordlist_ordenar(&wordList, args.ordenamiento);
-//    wordlist_imprimir_pantalla(&wordList);
-//    if(args.outFile != NULL){
-//        wordlist_imprimir_archivo(&wordList,args.outFile);
-//        fclose(args.outFile);
-//    }
+    wordlist_imprimir_pantalla(&wordList);
+    if(args.outFile != NULL){
+        wordlist_imprimir_archivo(&wordList,args.outFile);
+        fclose(args.outFile);
+    }
     fclose(args.inFile);
     wordlist_destruir(&wordList);
 
