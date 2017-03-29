@@ -55,9 +55,8 @@ int buffer_guardar(buffer_t *self, char *word) {
 
         self->buffer[self->cant_words] = aux;
         self->cant_words += 1;
-        return 0;
     }
-
+    return 0;
 }
 
 //size_t buffer_obtener_cant(buffer_t *self) {
@@ -79,8 +78,8 @@ void buffer_ordenar(buffer_t *self, size_t modo) {
 }
 
 bool esta_en_buffer(buffer_t *self, char *word) {
-    for (int i = 0; i < self->cant_words; i+=1) {
-        if(strncasecmp(word,self->buffer[i],50)==0)
+    for (int i = 0; i < self->cant_words; i += 1) {
+        if (strncasecmp(word, self->buffer[i], 50) == 0)
             return true;
     }
     return false;
