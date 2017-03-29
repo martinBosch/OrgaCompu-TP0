@@ -1,9 +1,7 @@
 #include "buffer.h"
 #include <string.h>
-#include <stdio.h>
-//#include "ordenamiento.h"
 
-#define TAM_INICIAL 100
+#define TAM_INICIAL 5000
 
 
 int buffer_crear(buffer_t *self) {
@@ -36,7 +34,7 @@ static int buffer_redimensionar(buffer_t *self, size_t tam_nuevo) {
 }
 
 int buffer_guardar(buffer_t *self, char *word) {
-    if(!esta_en_buffer(self,word)){
+    if(!buffer_esta(self, word)){
         if (self->cant_words >= self->tam) {
             int redimension = buffer_redimensionar(self, self->tam*2);
             if (redimension == 1) {
@@ -44,24 +42,14 @@ int buffer_guardar(buffer_t *self, char *word) {
             }
         }
         size_t tam_word = strlen(word);
-
-//    printf("%zu\n", tam_word);
-//    printf("%s\n", word);
-
         char *aux = malloc((tam_word+1) * sizeof(char));
         memcpy(aux, word, tam_word+1);
-
-//    printf("AUX: %s\n", aux);
-
         self->buffer[self->cant_words] = aux;
         self->cant_words += 1;
+        return 0;
     }
-    return 0;
-}
 
-//size_t buffer_obtener_cant(buffer_t *self) {
-//    return self->cant_words;
-//}
+}
 
 void buffer_imprimir_words(buffer_t *self, FILE* stream) {
     for (int i = 0; i < self->cant_words; i+=1) {
@@ -74,12 +62,12 @@ void buffer_ordenar(buffer_t *self, size_t modo) {
         bubbleSort(self->buffer, self->cant_words);
 
     if (modo == ORDENAMIENTO_QUICKSORT)
-        quicksort(self->buffer, 0, (self->cant_words)-1);
+        quickSort(self->buffer, 0, (self->cant_words) - 1);
 }
 
-bool esta_en_buffer(buffer_t *self, char *word) {
-    for (int i = 0; i < self->cant_words; i += 1) {
-        if (strncasecmp(word, self->buffer[i], 50) == 0)
+bool buffer_esta(buffer_t *self, char *word) {
+    for (int i = 0; i < self->cant_words; i+=1) {
+        if(strncasecmp(word,self->buffer[i],50)==0)
             return true;
     }
     return false;

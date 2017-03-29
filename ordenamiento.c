@@ -1,9 +1,5 @@
 #include <string.h>
 #include <stdbool.h>
-#include <strings.h>
-
-#include <stdio.h>
-
 
 static bool intercambiar(char **word1, char **word2){
     char *aux = *word1;
@@ -36,16 +32,16 @@ static int partition(char **vec, size_t izq, size_t der) {
     return izq;
 }
 
-void quicksort(char **vec, int izq, int der) {
+void quickSort(char **vec, int izq, int der) {
     // Si la lista esta vacia, o es de tamanio 1 esta ordenada.
     if (der-izq <= 0) {
         return;
     }
     int pos_pivot = partition(vec, izq, der);
     // Ordeno los menores al pivot
-    quicksort(vec, izq, pos_pivot-1);
+    quickSort(vec, izq, pos_pivot-1);
     // Ordeno los mayores al pivot
-    quicksort(vec, pos_pivot+1, der);
+    quickSort(vec, pos_pivot+1, der);
 }
 
 void bubbleSort(char **vec, int largo_vec) {
