@@ -21,10 +21,6 @@ int wordlist_crear(wordlist_t *self);
 // Pre: self fue inicializado mediante wordscounter_create
 void wordlist_destruir(wordlist_t *self);
 
-// Retorna la lista de palabras
-// Pre: self fue inicializado mediante wordscounter_create
-//buffer_t* wordlist_obtener_lista(wordlist_t *self);
-
 // Procesa el contenido de text_file, obteniendo sus palabras.
 // Pre: self fue inicializado mediante wordlist_create.
 //      text_file es un archivo válido, abierto para lectura.

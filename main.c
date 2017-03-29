@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include <getopt.h>
-#include <string.h>
-#include <stdbool.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "wordlist.h"
 
 #define OPTSTRING "Vhqb:o:i"
-struct globalArgs_t {
-    size_t ordenamiento;
+static struct args_t {
+    char ordenamiento;
     const char *outFileName;
     FILE *outFile;
     const char *inFileName;
     FILE *inFile;
-}globalArgs;
+    bool is_qsort;
+    bool is_bsort;
+    bool is_oset;
+    bool is_iset;
+}args;
 
 static const struct option longOpts[] = {
         { "version", no_argument, NULL, 'V' },
@@ -40,16 +43,24 @@ void setArgs(int argc, char *argv[]){
                 print_version();
                 break;
             case 'q':
-                globalArgs.ordenamiento=ORDENAMIENTO_QUICKSORT;
+                args.ordenamiento = ORDENAMIENTO_QUICKSORT;
+                args.is_qsort = true;
                 break;
             case 'b':
-                globalArgs.ordenamiento=ORDENAMIENTO_BUBBLESORT;
+                args.ordenamiento = ORDENAMIENTO_BUBBLESORT;
+                args.is_bsort = true;
                 break;
             case 'o':
-                globalArgs.outFileName=optarg;
+                if(args.is_oset)
+                    display_usage();
+                args.outFileName = optarg;
+                args.is_oset = true;
                 break;
             case 'i':
-                globalArgs.inFileName=optarg;
+                if(args.is_iset)
+                    display_usage();
+                args.inFileName = optarg;
+                args.is_iset = true;
                 break;
             case 'h':
             case '?':
@@ -59,16 +70,30 @@ void setArgs(int argc, char *argv[]){
                 break;
         }
     }
-    if(globalArgs.inFileName==NULL)
-        globalArgs.inFileName=argv[optind]; //Si no se utilizo -i el archivo será el ultimo arg
+    if(args.is_bsort && args.is_qsort){
+        printf("ERROR: options q b are incompatible\n");
+        display_usage();
+    }
 
+    if (args.inFileName == NULL){
+        if(argv[optind] != NULL && strcmp(args.outFileName, argv[optind]) != 0)
+            args.inFileName = argv[optind];
+        else{
+            printf("ERROR: no input file\n");
+            display_usage();
+        }
+    }
 }
 void initializeGlobalArgs(){
-    globalArgs.ordenamiento=ORDENAMIENTO_BUBBLESORT; //por default bubblesort
-    globalArgs.outFileName=NULL;
-    globalArgs.inFileName=NULL;
-    globalArgs.outFile=NULL;
-    globalArgs.inFile=NULL;
+    args.ordenamiento = ORDENAMIENTO_QUICKSORT;
+    args.outFileName = NULL;
+    args.inFileName = NULL;
+    args.outFile = NULL;
+    args.inFile = NULL;
+    args.is_oset = false;
+    args.is_bsort = false;
+    args.is_qsort = false;
+    args.is_iset = false;
 }
 void display_usage(){
     printf("Usage: \n");
@@ -84,7 +109,7 @@ void display_usage(){
     printf("-i, --input\n");
     printf("Path to input file.\n");
     printf("-q, --qsort\n");
-    printf("Use quicksort.\n");
+    printf("Use quickSort.\n");
     printf("-b, --bsort\n");
     printf("Use bubblesort.\n");
     printf("Examples\n");
@@ -99,22 +124,31 @@ void print_version(){
 int main(int argc, char *argv[]){
     wordlist_t wordList;
     setArgs(argc,argv);
-    globalArgs.inFile=fopen(globalArgs.inFileName,"r");
-    if (globalArgs.outFileName != NULL)
-        globalArgs.outFile=fopen(globalArgs.outFileName,"w");
-    if(globalArgs.inFile==NULL)
-        return 1;
+    if(args.inFileName != NULL)
+        args.inFile = fopen(args.inFileName,"r");
 
+    if(args.outFileName != NULL)
+        args.outFile=fopen(args.outFileName,"w");
+
+    if(args.inFile == NULL){
+        printf("ERROR: %s %s\n", args.inFileName, strerror(errno));
+        return 1;
+    }
+
+    if(args.outFileName != NULL && args.outFile == NULL){
+        printf("ERROR: %s %s\n", args.outFileName, strerror(errno));
+        return 1;
+    }
 
     wordlist_crear(&wordList);
-    wordlist_procesar(&wordList,globalArgs.inFile);
-    wordlist_ordenar(&wordList, globalArgs.ordenamiento);
+    wordlist_procesar(&wordList,args.inFile);
+    wordlist_ordenar(&wordList, args.ordenamiento);
     wordlist_imprimir_pantalla(&wordList);
-    if(globalArgs.outFile!=NULL){
-        wordlist_imprimir_archivo(&wordList,globalArgs.outFile);
-        fclose(globalArgs.outFile);
+    if(args.outFile != NULL){
+        wordlist_imprimir_archivo(&wordList,args.outFile);
+        fclose(args.outFile);
     }
-    fclose(globalArgs.inFile);
+    fclose(args.inFile);
     wordlist_destruir(&wordList);
 
     return 0;

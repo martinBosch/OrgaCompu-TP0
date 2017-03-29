@@ -1,19 +1,13 @@
 #include "wordlist.h"
-#include <string.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <ctype.h>
 
 #define STATE_WAITING_WORD 0
 #define STATE_IN_WORD 1
 #define STATE_FINISHED 2
 #define DELIM_WORDS "\xbb\xef\xbf ,.-*$%&·:;/_?=@«¡!#()[]{}0123456789\n\r\t\\\""
-
 // Compara el caracter leído c y define el nuevo estado.
 static char wordlist_next_state(wordlist_t *self, char state, int c);
 //Añade el caracter c al string str
-static void stradd(char* str,char c);
+static void stradd(char* str,int c);
 //guarda en el buffer la current word
 static void save_word(wordlist_t *self);
 
@@ -35,7 +29,7 @@ void wordlist_destruir(wordlist_t *self) {
 void wordlist_procesar(wordlist_t *self, FILE *text_file) {
     char state = STATE_WAITING_WORD;
     do {
-        char c = getc(text_file);
+        int c = getc(text_file);
         state = wordlist_next_state(self, state, c);
     } while (state != STATE_FINISHED);
 }
@@ -72,7 +66,7 @@ void save_word(wordlist_t *self){
             memset(self->current_word,0,MAX_WORD_SIZE);
         }
         else{
-            if(strpbrk(self->current_word,DELIM_WORDS)==NULL){//Hay que guardar las palabras de un solo caracter
+            if(strpbrk(self->current_word,DELIM_WORDS)==NULL){//Hay que guardar las palabras de un solo caracter que no sea delim
                 buffer_guardar(&self->word_list, self->current_word);
                 memset(self->current_word,0,MAX_WORD_SIZE);
             }
@@ -81,7 +75,7 @@ void save_word(wordlist_t *self){
 
 }
 
-void stradd(char* str,char c){
+void stradd(char* str,int c){
     if(strlen(str)+1<MAX_WORD_SIZE) {
         str[strlen(str)] = c;
         str[strlen(str)+1] =  '\0';

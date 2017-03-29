@@ -7,6 +7,6 @@
 #define ORDENAMIENTO_QUICKSORT 1
 
 void bubbleSort(char **vec, int largo_vec);
-void quicksort(char **vec, size_t izq, size_t der);
+void quickSort(char **vec, size_t izq, size_t der);
 
 #endif //ORDENAMIENTO_H
