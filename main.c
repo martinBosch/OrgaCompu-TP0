@@ -4,7 +4,7 @@
 #include <errno.h>
 #include "wordlist.h"
 
-#define OPTSTRING "Vhqb:o:i"
+#define OPTSTRING "Vhqbo:i:"
 static struct args_t {
     char ordenamiento;
     const char *outFileName;
@@ -81,14 +81,11 @@ void setArgs(int argc, char *argv[]){
     }
 
     if (args.inFileName == NULL){
-        if(argv[optind] != NULL && strcmp(args.outFileName, argv[optind]) != 0)
-            args.inFileName = argv[optind];
-        else{
-            printf("ERROR: no input file\n");
-            display_usage();
-        }
+        printf("ERROR: no input file\n");
+        display_usage();
     }
 }
+
 void initializeGlobalArgs(){
     args.ordenamiento = ORDENAMIENTO_QUICKSORT;
     args.outFileName = NULL;
@@ -128,6 +125,7 @@ void print_version(){
 
 int main(int argc, char *argv[]){
     wordlist_t wordList;
+
     setArgs(argc,argv);
     if(args.inFileName != NULL)
         args.inFile = fopen(args.inFileName,"r");
@@ -148,10 +146,12 @@ int main(int argc, char *argv[]){
     wordlist_crear(&wordList);
     wordlist_procesar(&wordList,args.inFile);
     wordlist_ordenar(&wordList, args.ordenamiento);
-    wordlist_imprimir_pantalla(&wordList);
     if(args.outFile != NULL){
         wordlist_imprimir_archivo(&wordList,args.outFile);
         fclose(args.outFile);
+    }
+    else {
+        wordlist_imprimir_pantalla(&wordList);
     }
     fclose(args.inFile);
     wordlist_destruir(&wordList);
